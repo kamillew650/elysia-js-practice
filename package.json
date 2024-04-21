@@ -2,8 +2,11 @@
   "name": "elysia-js-practice",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "workspaces": [
+    "apps/api"
+  ],
   "scripts": {
+    "dev": "turbo run dev",
     "build": "vite build",
     "type-check": "tsc"
   },
