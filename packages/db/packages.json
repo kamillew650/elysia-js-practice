@@ -1,0 +1,69 @@
+{
+  "name": "@packages/db",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "main": "./dist/database.js",
+  "types": "./dist/database.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/database.mjs",
+        "types": "./dist/database.d.mts"
+      },
+      "require": {
+        "default": "./dist/database.js",
+        "types": "./dist/database.d.ts"
+      }
+    },
+    "./schema": {
+      "import": {
+        "default": "./dist/schema.mjs",
+        "types": "./dist/schema.d.mts"
+      },
+      "require": {
+        "default": "./dist/schema.js",
+        "types": "./dist/schema.d.ts"
+      }
+    },
+    "./types": {
+      "import": {
+        "default": "./dist/types.mjs",
+        "types": "./dist/types.d.mts"
+      },
+      "require": {
+        "default": "./dist/types.js",
+        "types": "./dist/types.d.ts"
+      }
+    },
+    "./static-data": {
+      "import": {
+        "default": "./dist/static-data.mjs",
+        "types": "./dist/static-data.d.mts"
+      },
+      "require": {
+        "default": "./dist/static-data.js",
+        "types": "./dist/static-data.d.ts"
+      }
+    }
+  },
+  "scripts": {
+    "dev": "tsup-node --watch",
+    "build": "tsup-node",
+    "db:check": "pnpm with-env drizzle-kit check:pg",
+    "db:generate": "pnpm with-env drizzle-kit generate:pg",
+    "db:migrate": "pnpm with-env tsx migrate.ts",
+    "db:seed": "pnpm with-env tsx ./seed/seed.ts",
+    "db:studio": "pnpm drizzle-kit studio",
+    "db:up": "pnpm with-env drizzle-kit up:pg",
+    "db:drop": "pnpm with-env drizzle-kit drop",
+    "db:push": "pnpm with-env drizzle-kit push:pg",
+    "with-env": "dotenv -e ../../.env --",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {}
+}
